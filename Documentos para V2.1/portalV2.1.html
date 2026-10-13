@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portafolio profesional de Shuha Emilio Blas Santos — Desarrollador de software y proyectos mecatrónicos.">
+    <title>Shuha Emilio Blas Santos | Portafolio V2.1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* =============================================
+   VARIABLES Y RESET GLOBAL
+   ============================================= */
+        :root {
+            --base: #E2EFF5;
+            --primary: #1B6CA8;
+            --primary-dark: #134F7A;
+            --accent: #00C9A7;
+            --dark: #0D1B2A;
+            --text: #1A2B3C;
+            --text-light: #4A6072;
+            --white: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --shadow: 0 4px 24px rgba(27, 108, 168, 0.12);
+            --radius: 14px;
+            --transition: 0.3s ease;
+            --nav-h: 68px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--base);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh
+        }
+
+        /* =============================================
+   NAVBAR
+   ============================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-h);
+            background: rgba(13, 27, 42, 0.96);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3)
+        }
+
+        .navbar-logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px
+        }
+
+        .navbar-logo span {
+            color: var(--accent)
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px
+        }
+
+        .navbar-menu li a {
+            display: block;
+            padding: 8px 18px;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: .875rem;
+            font-weight: 600;
+            letter-spacing: .5px;
+            transition: var(--transition)
+        }
+
+        .navbar-menu li a:hover,
+        .navbar-menu li a.activo {
+            color: var(--white);
+            background: var(--primary)
+        }
+
+        .navbar-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px
+        }
+
+        .navbar-burger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition)
+        }
+
+        /* =============================================
+   SECCIONES BASE
+   ============================================= */
+        .seccion {
+            min-height: 100vh;
+            padding: calc(var(--nav-h) + 60px) 5% 80px;
+            display: none
+        }
+
+        .seccion.activa {
+            display: block
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 60px
+        }
+
+        .seccion-titulo h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--dark);
+            position: relative;
+            display: inline-block
+        }
+
+        .seccion-titulo h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin: 12px auto 0
+        }
+
+        .seccion-titulo p {
+            margin-top: 16px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-inline: auto
+        }
+
+        /* =============================================
+   SECCIÓN: INICIO
+   ============================================= */
+        #inicio {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0D1B2A 0%, #1B6CA8 60%, #00C9A7 100%)
+        }
+
+        .inicio-inner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+            width: 100%;
+            flex-wrap: wrap
+        }
+
+        .inicio-texto {
+            flex: 1;
+            min-width: 280px;
+            color: var(--white)
+        }
+
+        .inicio-saludo {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .inicio-texto h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px
+        }
+
+        .inicio-texto h2 {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 36px
+        }
+
+        .inicio-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 10px;
+            font-size: .9rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            text-decoration: none
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark)
+        }
+
+        .btn-primary:hover {
+            background: #00b096;
+            transform: translateY(-2px)
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.5);
+            color: var(--white)
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-2px)
+        }
+
+        .inicio-imgs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 0 0 auto
+        }
+
+        .inicio-img-card {
+            width: 200px;
+            height: 150px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: .8rem;
+            text-align: center;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2)
+        }
+
+        .inicio-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        /* =============================================
+   SECCIÓN: MI INFORMACIÓN
+   ============================================= */
+        #informacion {
+            background: var(--base)
+        }
+
+        .info-perfil {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow)
+        }
+
+        .info-foto {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(27, 108, 168, 0.25)
+        }
+
+        .info-bio {
+            flex: 1;
+            min-width: 240px
+        }
+
+        .info-bio h3 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 8px
+        }
+
+        .info-bio .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: .75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            margin-right: 8px
+        }
+
+        .info-bio .badge-green {
+            background: var(--accent);
+            color: var(--dark)
+        }
+
+        .info-bio p {
+            color: var(--text-light);
+            line-height: 1.8
+        }
+
+        .habilidades-titulo {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 28px
+        }
+
+        .habilidades-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 60px
+        }
+
+        .habilidades-col {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow)
+        }
+
+        .habilidades-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .habilidad-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px
+        }
+
+        .habilidad-nombre {
+            font-size: .875rem;
+            font-weight: 600;
+            color: var(--text)
+        }
+
+        .habilidad-barra-wrap {
+            flex: 1;
+            height: 8px;
+            background: var(--base);
+            border-radius: 4px;
+            margin: 0 12px
+        }
+
+        .habilidad-barra {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent))
+        }
+
+        .habilidad-pct {
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            min-width: 32px;
+            text-align: right
+        }
+
+        .carrusel-wrap {
+            margin-bottom: 60px
+        }
+
+        .carrusel {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius)
+        }
+
+        .carrusel-track {
+            display: flex;
+            transition: transform .5s ease
+        }
+
+        .carrusel-slide {
+            min-width: 100%;
+            padding: 40px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center
+        }
+
+        .carrusel-slide h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px
+        }
+
+        .carrusel-slide p {
+            color: var(--text-light)
+        }
+
+        .carrusel-btns {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .carrusel-btn {
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition)
+        }
+
+        .carrusel-btn:hover {
+            background: var(--primary);
+            color: var(--white)
+        }
+
+        .timeline-titulo {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 28px
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%)
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: calc(50% + 28px);
+            margin-bottom: 32px;
+            position: relative
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: calc(50% + 28px)
+        }
+
+        .timeline-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            box-shadow: var(--shadow);
+            position: relative;
+            max-width: 280px;
+            width: 100%
+        }
+
+        .timeline-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--primary)
+        }
+
+        .timeline-item:not(:nth-child(even)) .timeline-card::after {
+            right: -42px
+        }
+
+        .timeline-item:nth-child(even) .timeline-card::after {
+            left: -42px
+        }
+
+        .timeline-year {
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px
+        }
+
+        .timeline-card h4 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px
+        }
+
+        .timeline-card p {
+            font-size: .825rem;
+            color: var(--text-light)
+        }
+
+        .timeline-card a {
+            font-size: .8rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none
+        }
+
+        .timeline-card a:hover {
+            text-decoration: underline
+        }
+
+        .cv-btn-wrap {
+            text-align: center;
+            margin-top: 16px
+        }
+
+        /* =============================================
+   SECCIÓN: MIS PROYECTOS
+   ============================================= */
+        #proyectos {
+            background: linear-gradient(180deg, var(--base) 0%, #cde4ef 100%)
+        }
+
+        .proyectos-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px
+        }
+
+        .tab-btn {
+            padding: 10px 28px;
+            border-radius: 30px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: .875rem;
+            cursor: pointer;
+            transition: var(--transition)
+        }
+
+        .tab-btn.activo,
+        .tab-btn:hover {
+            background: var(--primary);
+            color: var(--white)
+        }
+
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px
+        }
+
+        .proyecto-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer
+        }
+
+        .proyecto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(27, 108, 168, 0.2)
+        }
+
+        .proyecto-card-header {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem
+        }
+
+        .proyecto-card-header.sw {
+            background: linear-gradient(135deg, #1B6CA8, #00C9A7)
+        }
+
+        .proyecto-card-header.mec {
+            background: linear-gradient(135deg, #2D3436, #636E72)
+        }
+
+        .proyecto-card-body {
+            padding: 20px
+        }
+
+        .proyecto-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: .7rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--base);
+            color: var(--primary)
+        }
+
+        .proyecto-card-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px
+        }
+
+        .proyecto-card-body p {
+            font-size: .825rem;
+            color: var(--text-light);
+            line-height: 1.5
+        }
+
+        .proyecto-card-footer {
+            padding: 14px 20px;
+            border-top: 1px solid var(--base);
+            display: flex;
+            gap: 8px
+        }
+
+        .proyecto-card[data-cat="mecatronica"] {
+            display: none
+        }
+
+        /* =============================================
+   MODAL
+   ============================================= */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        .modal-overlay.abierto {
+            display: flex
+        }
+
+        .modal-caja {
+            background: var(--white);
+            border-radius: var(--radius);
+            max-width: 680px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4)
+        }
+
+        .modal-cabecera {
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--base);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .modal-cabecera h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark)
+        }
+
+        .modal-cerrar {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: var(--base);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition)
+        }
+
+        .modal-cerrar:hover {
+            background: var(--primary);
+            color: var(--white)
+        }
+
+        .modal-cuerpo {
+            padding: 28px
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-radius: 10px;
+            margin: 16px 0;
+            background: var(--base)
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0
+        }
+
+        .modal-tag {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: .75rem;
+            font-weight: 700;
+            background: var(--base);
+            color: var(--primary)
+        }
+
+        /* =============================================
+   SECCIÓN: MIS CONTACTOS
+   ============================================= */
+        #contactos {
+            background: var(--dark)
+        }
+
+        #contactos .seccion-titulo h2 {
+            color: var(--white)
+        }
+
+        #contactos .seccion-titulo p {
+            color: rgba(255, 255, 255, 0.6)
+        }
+
+        .contactos-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start
+        }
+
+        .contactos-izq {
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
+
+        .badge-disponible {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(0, 201, 167, 0.15);
+            border: 1px solid rgba(0, 201, 167, 0.4);
+            border-radius: 30px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: .875rem;
+            margin-bottom: 8px
+        }
+
+        .badge-disponible .dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulso 1.4s ease-in-out infinite
+        }
+
+        @keyframes pulso {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(1.3)
+            }
+        }
+
+        .redes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .red-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .875rem;
+            transition: var(--transition)
+        }
+
+        .red-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary)
+        }
+
+        .form-iframe {
+            width: 100%;
+            height: 520px;
+            border: none;
+            border-radius: var(--radius);
+            overflow: hidden
+        }
+
+        .mapa-iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            overflow: hidden
+        }
+
+        .qr-wrap {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1)
+        }
+
+        .qr-wrap p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: .8rem;
+            margin-top: 8px
+        }
+
+        /* =============================================
+   FOOTER
+   ============================================= */
+        .footer {
+            text-align: center;
+            padding: 24px 20px;
+            background: #060d15;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: .8rem
+        }
+
+        .footer span {
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        /* =============================================
+   RESPONSIVO
+   ============================================= */
+        @media(max-width:768px) {
+            .inicio-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px
+            }
+
+            .inicio-imgs {
+                flex-direction: row;
+                justify-content: center
+            }
+
+            .inicio-img-card {
+                width: 140px;
+                height: 110px
+            }
+
+            .habilidades-grid {
+                grid-template-columns: 1fr
+            }
+
+            .proyectos-grid {
+                grid-template-columns: 1fr
+            }
+
+            .contactos-inner {
+                grid-template-columns: 1fr
+            }
+
+            .timeline::before {
+                left: 18px
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 56px;
+                padding-right: 0
+            }
+
+            .timeline-card::after,
+            .timeline-item:nth-child(even) .timeline-card::after {
+                left: -38px
+            }
+
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-h);
+                right: 0;
+                left: 0;
+                background: rgba(13, 27, 42, 0.98);
+                padding: 16px;
+                gap: 4px
+            }
+
+            .navbar-menu.abierto {
+                display: flex
+            }
+
+            .navbar-burger {
+                display: flex
+            }
+
+            .redes-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:480px) {
+            .seccion-titulo h2 {
+                font-size: 1.8rem
+            }
+
+            .inicio-texto h1 {
+                font-size: 2rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =============================================
+     NAVBAR PERSISTENTE
+     ============================================= -->
+    <header>
+        <nav class="navbar" aria-label="Navegación principal">
+            <a href="#inicio" class="navbar-logo" id="logo-nav">Shuha<span>.</span></a>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="#" class="nav-link activo" data-seccion="inicio">INICIO</a></li>
+                <li><a href="#" class="nav-link" data-seccion="informacion">MI INFORMACIÓN</a></li>
+                <li><a href="#" class="nav-link" data-seccion="proyectos">MIS PROYECTOS</a></li>
+                <li><a href="#" class="nav-link" data-seccion="contactos">MIS CONTACTOS</a></li>
+            </ul>
+            <button class="navbar-burger" id="navbar-burger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =============================================
+     SECCIÓN INICIO
+     ============================================= -->
+        <section class="seccion activa" id="inicio" aria-label="Inicio">
+            <div class="inicio-inner">
+                <div class="inicio-texto">
+                    <p class="inicio-saludo">👋 Bienvenido a mi portafolio</p>
+                    <h1>Hola!, Soy<br>Shuha Emilio</h1>
+                    <h2>Desarrollador de software y proyectos mecatrónicos</h2>
+                    <div class="inicio-ctas">
+                        <a href="#" class="btn btn-primary nav-link" data-seccion="proyectos">Ver Proyectos ↗</a>
+                        <a href="https://drive.google.com/drive/folders/1_TU_CARPETA_AQUI" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline">📄 Descargar CV</a>
+                    </div>
+                </div>
+                <div class="inicio-imgs">
+                    <div class="inicio-img-card">
+                        <span>💻<br>Desarrollo<br>de Software</span>
+                    </div>
+                    <div class="inicio-img-card">
+                        <span>⚙️<br>Ingeniería<br>Mecatrónica</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+     SECCIÓN MI INFORMACIÓN
+     ============================================= -->
+        <section class="seccion" id="informacion" aria-label="Mi Información">
+            <div class="seccion-titulo">
+                <h2>Mi Información</h2>
+                <p>Perfil profesional, habilidades y trayectoria académica</p>
+            </div>
+
+            <!-- Perfil dual -->
+            <div class="info-perfil">
+                <div class="info-foto" aria-label="Fotografía de perfil">🎓</div>
+                <div class="info-bio">
+                    <h3>Shuha Emilio Blas Santos</h3>
+                    <span class="badge">Técnico en Informática</span>
+                    <span class="badge badge-green">Ing. Mecatrónica</span>
+                    <p>Estudiante y profesional con perfil dual: <strong>Técnico en Informática</strong> con sólida
+                        experiencia en desarrollo de software (Java, Python, Web) y <strong>candidato a Ingeniero
+                            Mecatrónico</strong> en la UAEM Tianguistenco. Apasionado por la intersección entre el
+                        software inteligente y los sistemas físicos automatizados. Busco resolver problemas reales
+                        combinando código robusto con diseño mecánico y electrónico.</p>
+                </div>
+            </div>
+
+            <!-- Matriz de habilidades -->
+            <p class="habilidades-titulo">💡 Stack Tecnológico</p>
+            <div class="habilidades-grid">
+                <div class="habilidades-col">
+                    <h4>💻 Software</h4>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Java</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:85%"></div>
+                        </div><span class="habilidad-pct">85%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Python</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:80%"></div>
+                        </div><span class="habilidad-pct">80%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">HTML/CSS/JS</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:78%"></div>
+                        </div><span class="habilidad-pct">78%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">SQL / Bases de datos</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:72%"></div>
+                        </div><span class="habilidad-pct">72%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Git / GitHub</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:75%"></div>
+                        </div><span class="habilidad-pct">75%</span>
+                    </div>
+                </div>
+                <div class="habilidades-col">
+                    <h4>⚙️ Mecatrónica</h4>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Arduino / Microcontroladores</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:80%"></div>
+                        </div><span class="habilidad-pct">80%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Impresión 3D / CAD</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:75%"></div>
+                        </div><span class="habilidad-pct">75%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Electrónica / Circuitos</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:70%"></div>
+                        </div><span class="habilidad-pct">70%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Automatización</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:65%"></div>
+                        </div><span class="habilidad-pct">65%</span>
+                    </div>
+                    <div class="habilidad-item"><span class="habilidad-nombre">Robótica</span>
+                        <div class="habilidad-barra-wrap">
+                            <div class="habilidad-barra" style="width:60%"></div>
+                        </div><span class="habilidad-pct">60%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrusel de proyectos destacados -->
+            <div class="carrusel-wrap">
+                <p class="habilidades-titulo">🚀 Proyectos Destacados</p>
+                <div class="carrusel" id="carrusel-info">
+                    <div class="carrusel-track" id="carrusel-track">
+                        <div class="carrusel-slide">
+                            <h4>💻 Sistema de Gestión de Supermercado</h4>
+                            <p>Aplicación Java con POO para simular el flujo de caja de un supermercado con módulo de
+                                pagos y balance acumulado.</p>
+                        </div>
+                        <div class="carrusel-slide">
+                            <h4>🤖 Grafo con Backtracking</h4>
+                            <p>Implementación en Python de algoritmos de coloración de grafos con backtracking y BFS
+                                para encontrar rutas mínimas.</p>
+                        </div>
+                        <div class="carrusel-slide">
+                            <h4>⚙️ Prototipo Mecatrónico</h4>
+                            <p>Sistema automatizado con Arduino, sensores y piezas impresas en 3D para control de
+                                procesos básicos.</p>
+                        </div>
+                        <div class="carrusel-slide">
+                            <h4>🌐 Portafolio Web V2.1</h4>
+                            <p>Este mismo portafolio: Single-file HTML con CSS/JS embebido, diseño responsivo y
+                                navegación SPA estática.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carrusel-btns">
+                    <button class="carrusel-btn" id="car-prev" aria-label="Anterior">&#8592;</button>
+                    <button class="carrusel-btn" id="car-next" aria-label="Siguiente">&#8594;</button>
+                </div>
+            </div>
+
+            <!-- Botón CV -->
+            <div class="cv-btn-wrap">
+                <a href="https://drive.google.com/drive/folders/1_TU_CARPETA_AQUI" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-primary">📄 Ver / Descargar CV en Drive</a>
+            </div>
+
+            <!-- Línea de tiempo -->
+            <br><br>
+            <p class="timeline-titulo">📅 Trayectoria y Certificaciones</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-year">2024</p>
+                        <h4>Técnico en Informática</h4>
+                        <p>UAEM Tianguistenco — Título obtenido</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-year">2024</p>
+                        <h4>Certificación Git &amp; GitHub</h4>
+                        <p>Fundamentos de control de versiones</p>
+                        <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">Ver certificado
+                            ↗</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-year">2025</p>
+                        <h4>Ingeniería Mecatrónica (en curso)</h4>
+                        <p>UAEM Tianguistenco — 5to semestre</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-year">2025</p>
+                        <h4>Certificación Python / Machine Learning</h4>
+                        <p>Algoritmos de clasificación y grafos</p>
+                        <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">Ver certificado
+                            ↗</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-year">2026</p>
+                        <h4>Portafolio Web V2.1</h4>
+                        <p>Lanzamiento de portafolio profesional único</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+     SECCIÓN MIS PROYECTOS
+     ============================================= -->
+        <section class="seccion" id="proyectos" aria-label="Mis Proyectos">
+            <div class="seccion-titulo">
+                <h2>Mis Proyectos</h2>
+                <p>Catálogo de proyectos de software y mecatrónica</p>
+            </div>
+            <div class="proyectos-tabs">
+                <button class="tab-btn activo" data-cat="software" id="tab-sw">💻 Software</button>
+                <button class="tab-btn" data-cat="mecatronica" id="tab-mec">⚙️ Mecatrónica</button>
+            </div>
+            <div class="proyectos-grid" id="proyectos-grid">
+
+                <!-- Software -->
+                <article class="proyecto-card" data-cat="software" tabindex="0"
+                    data-titulo="Sistema de Gestión de Supermercado"
+                    data-desc="Aplicación Java con Programación Orientada a Objetos que simula el flujo de caja completo de un supermercado. Incluye módulo de pagos con acumulación de balance, inventario y reportes básicos."
+                    data-tags="Java,POO,NetBeans,MySQL" data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header sw">🛒</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">Java</span>
+                        <h3>Sistema de Supermercado</h3>
+                        <p>Aplicación POO con módulo de pagos y balance acumulado en Java.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+                <article class="proyecto-card" data-cat="software" tabindex="0"
+                    data-titulo="Algoritmo de Coloración de Grafos (Backtracking)"
+                    data-desc="Implementación en Python de un algoritmo de backtracking para coloración de grafos. Incluye validación por paso, visualización de niveles BFS y búsqueda de ruta mínima de nodo A a F."
+                    data-tags="Python,Backtracking,Grafos,BFS,Algoritmos" data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header sw">🔀</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">Python</span>
+                        <h3>Coloración de Grafos</h3>
+                        <p>Backtracking + BFS con visualización de niveles y rutas mínimas.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+                <article class="proyecto-card" data-cat="software" tabindex="0"
+                    data-titulo="Sistema de Calificaciones Estudiantiles"
+                    data-desc="Aplicación Java para registrar alumnos, materias y calificaciones. Permite al usuario ingresar nombres de materias dinámicamente y las almacena en un arreglo asociado a las notas."
+                    data-tags="Java,Arrays,Entrada de datos" data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header sw">📚</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">Java</span>
+                        <h3>Sistema de Calificaciones</h3>
+                        <p>Gestión de materias y calificaciones con entrada dinámica de datos.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+                <article class="proyecto-card" data-cat="software" tabindex="0"
+                    data-titulo="Clasificador con Árbol de Decisión"
+                    data-desc="Script en Python usando scikit-learn para entrenar y evaluar un DecisionTreeClassifier. El código fue auditado y refactorizado siguiendo mejores prácticas para clasificación supervisada."
+                    data-tags="Python,Machine Learning,scikit-learn,Árboles de Decisión"
+                    data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header sw">🤖</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">Machine Learning</span>
+                        <h3>Árbol de Decisión</h3>
+                        <p>Clasificador supervisado con scikit-learn y refactorización limpia.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+                <article class="proyecto-card" data-cat="software" tabindex="0"
+                    data-titulo="Refactorización del Módulo de Conexión a BD"
+                    data-desc="Módulo Java ConexionDB refactorizado para utilizar try-with-resources, asegurando el cierre automático de conexiones y gestión robusta de credenciales a través de variables de entorno."
+                    data-tags="Java,JDBC,Base de Datos,Try-with-resources" data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header sw">🗄️</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">Java / JDBC</span>
+                        <h3>Módulo ConexionDB</h3>
+                        <p>Gestión de conexiones BD con try-with-resources y variables de entorno.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+                <!-- Mecatrónica -->
+                <article class="proyecto-card" data-cat="mecatronica" tabindex="0"
+                    data-titulo="Prototipo de Automatización con Arduino"
+                    data-desc="Sistema mecatrónico que combina Arduino, sensores de movimiento y temperatura, y piezas impresas en 3D para crear un controlador automático de ambiente para pequeños espacios."
+                    data-tags="Arduino,C++,Impresión 3D,Electrónica,Automatización"
+                    data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header mec">⚙️</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">Arduino</span>
+                        <h3>Prototipo de Automatización</h3>
+                        <p>Controlador de ambiente con sensores, Arduino y partes impresas en 3D.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+                <article class="proyecto-card" data-cat="mecatronica" tabindex="0"
+                    data-titulo="Diseño CAD y Manufactura Aditiva"
+                    data-desc="Diseño asistido por computadora de piezas mecánicas funcionales usando herramientas CAD. Las piezas fueron manufacturadas mediante impresión FDM y validadas dimensionalmente."
+                    data-tags="CAD,Impresión 3D,FDM,Diseño Mecánico" data-github="https://github.com/snullsh19">
+                    <div class="proyecto-card-header mec">🖨️</div>
+                    <div class="proyecto-card-body">
+                        <span class="proyecto-tag">CAD / 3D</span>
+                        <h3>Diseño CAD e Impresión 3D</h3>
+                        <p>Piezas mecánicas diseñadas en CAD y validadas con manufactura FDM.</p>
+                    </div>
+                    <div class="proyecto-card-footer">
+                        <button class="btn btn-primary" onclick="abrirModal(this.closest('.proyecto-card'))">Ver
+                            detalles</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- =============================================
+     SECCIÓN MIS CONTACTOS
+     ============================================= -->
+        <section class="seccion" id="contactos" aria-label="Mis Contactos">
+            <div class="seccion-titulo">
+                <h2>Mis Contactos</h2>
+                <p>¿Tienes un proyecto? ¡Hablemos!</p>
+            </div>
+            <div class="contactos-inner">
+                <div class="contactos-izq">
+                    <div class="badge-disponible">
+                        <span class="dot"></span>
+                        Disponible para proyectos
+                    </div>
+                    <div class="redes-grid">
+                        <a href="https://github.com/snullsh19" target="_blank" rel="noopener noreferrer"
+                            class="red-btn">
+                            <svg height="22" viewBox="0 0 16 16" width="22" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/shuha-emilio" target="_blank" rel="noopener noreferrer"
+                            class="red-btn">
+                            <svg height="22" viewBox="0 0 24 24" width="22" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:emilio@example.com" class="red-btn">
+                            <svg height="22" viewBox="0 0 24 24" width="22" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            Correo
+                        </a>
+                        <button class="red-btn" id="btn-copiar" onclick="copiarEmail()"
+                            style="cursor:pointer;border:none;">
+                            <svg height="22" viewBox="0 0 24 24" width="22" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                            </svg>
+                            <span id="copiar-texto">Copiar email</span>
+                        </button>
+                    </div>
+                    <div class="qr-wrap">
+                        <p>📱 Escanea el QR para guardar mi contacto (vCard)</p>
+                        <br>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=BEGIN:VCARD%0AVERSION:3.0%0AFN:Shuha%20Emilio%20Blas%20Santos%0AORG:UAEM%20Tianguistenco%0AURL:https://github.com/snullsh19%0AEND:VCARD"
+                            alt="Código QR con vCard de contacto de Shuha Emilio Blas Santos" width="140" height="140">
+                        <p>vCard — Shuha Emilio Blas Santos</p>
+                    </div>
+                    <iframe class="mapa-iframe" title="Ubicación UAEM Tianguistenco"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5!2d-99.4700!3d19.1600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd8b6c5a3b0001%3A0x0!2sUAEM%20Tianguistenco!5e0!3m2!1ses!2smx!4v1"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div>
+                    <iframe class="form-iframe" title="Formulario de contacto"
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSe_REEMPLAZA_CON_TU_FORM_ID/viewform?embedded=true"
+                        aria-label="Formulario de contacto">
+                        Cargando formulario…
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =============================================
+     FOOTER
+     ============================================= -->
+    <footer class="footer">
+        <p>© 2026 <span>Shuha Emilio Blas Santos</span> — Portafolio V2.1 | UAEM Tianguistenco</p>
+    </footer>
+
+    <!-- =============================================
+     MODAL DE PROYECTOS
+     ============================================= -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal-caja">
+            <div class="modal-cabecera">
+                <h3 id="modal-titulo"></h3>
+                <button class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar modal">✕</button>
+            </div>
+            <div class="modal-cuerpo">
+                <p id="modal-desc"></p>
+                <div class="modal-tags" id="modal-tags"></div>
+                <a id="modal-github" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver en
+                    GitHub ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+     JAVASCRIPT — LÓGICA SPA, CARRUSEL Y MODALES
+     ============================================= -->
+    <script>
+        /* --- NAVEGACIÓN SPA --- */
+        const secciones = document.querySelectorAll('.seccion');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function mostrarSeccion(id) {
+            secciones.forEach(s => s.classList.remove('activa'));
+            navLinks.forEach(a => a.classList.remove('activo'));
+            const target = document.getElementById(id);
+            if (target) target.classList.add('activa');
+            navLinks.forEach(a => {
+                if (a.dataset.seccion === id) a.classList.add('activo');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const sec = link.dataset.seccion;
+                if (sec) mostrarSeccion(sec);
+                if (document.getElementById('navbar-menu').classList.contains('abierto')) toggleMenu();
+            });
+        });
+
+        /* --- MENÚ HAMBURGUESA --- */
+        const burger = document.getElementById('navbar-burger');
+        const menu = document.getElementById('navbar-menu');
+        function toggleMenu() {
+            const open = menu.classList.toggle('abierto');
+            burger.setAttribute('aria-expanded', open);
+        }
+        burger.addEventListener('click', toggleMenu);
+
+        /* --- CARRUSEL --- */
+        let carIdx = 0;
+        const track = document.getElementById('carrusel-track');
+        const slides = track ? track.children : [];
+        function moverCar(dir) {
+            if (!slides.length) return;
+            carIdx = (carIdx + dir + slides.length) % slides.length;
+            track.style.transform = 'translateX(-' + (carIdx * 100) + '%)';
+        }
+        const btnPrev = document.getElementById('car-prev');
+        const btnNext = document.getElementById('car-next');
+        if (btnPrev) btnPrev.addEventListener('click', () => moverCar(-1));
+        if (btnNext) btnNext.addEventListener('click', () => moverCar(1));
+        setInterval(() => moverCar(1), 5000);
+
+        /* --- TABS DE PROYECTOS --- */
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const cards = document.querySelectorAll('.proyecto-card');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('activo'));
+                btn.classList.add('activo');
+                const cat = btn.dataset.cat;
+                cards.forEach(c => {
+                    c.style.display = (c.dataset.cat === cat) ? 'block' : 'none';
+                });
+            });
+        });
+
+        /* --- MODAL --- */
+        const overlay = document.getElementById('modal-overlay');
+        const modalTitulo = document.getElementById('modal-titulo');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalTags = document.getElementById('modal-tags');
+        const modalGithub = document.getElementById('modal-github');
+        const modalCerrar = document.getElementById('modal-cerrar');
+        let focusAnterior = null;
+
+        function abrirModal(card) {
+            focusAnterior = document.activeElement;
+            modalTitulo.textContent = card.dataset.titulo || '';
+            modalDesc.textContent = card.dataset.desc || '';
+            modalGithub.href = card.dataset.github || '#';
+            modalTags.innerHTML = '';
+            (card.dataset.tags || '').split(',').forEach(t => {
+                const sp = document.createElement('span');
+                sp.className = 'modal-tag';
+                sp.textContent = t.trim();
+                modalTags.appendChild(sp);
+            });
+            overlay.classList.add('abierto');
+            modalCerrar.focus();
+        }
+
+        function cerrarModal() {
+            overlay.classList.remove('abierto');
+            if (focusAnterior) focusAnterior.focus();
+        }
+
+        modalCerrar.addEventListener('click', cerrarModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) cerrarModal(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && overlay.classList.contains('abierto')) cerrarModal();
+            if (e.key === 'Tab' && overlay.classList.contains('abierto')) {
+                const focusables = overlay.querySelectorAll('button,a,[tabindex]:not([tabindex="-1"])');
+                const first = focusables[0], last = focusables[focusables.length - 1];
+                if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+                else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+            }
+        });
+
+        cards.forEach(card => {
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrirModal(card); }
+            });
+        });
+
+        /* --- COPIAR EMAIL --- */
+        function copiarEmail() {
+            navigator.clipboard.writeText('emilio@example.com').then(() => {
+                const el = document.getElementById('copiar-texto');
+                el.textContent = '¡Copiado!';
+                setTimeout(() => { el.textContent = 'Copiar email'; }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
